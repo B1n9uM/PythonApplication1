@@ -2,6 +2,8 @@ from PySide6.QtWidgets import QMainWindow, QTextEdit, QWidget, QFileDialog, QMes
 from PySide6.QtGui import QAction, QKeySequence
 import webbrowser
 
+from graph import themeWhite, themeDark, beautifulStyle_White, beautifilStyle_Dark
+
 
 class Win(QMainWindow):
     def __init__(self):
@@ -22,10 +24,9 @@ class Win(QMainWindow):
         #Settings menubar
 
         # self.switch_window = {f"list{i}" : None  for i in range(7)}
-
-
         self.createM()
 
+        self.setStyleSheet(themeWhite())
 
     def createM(self):
         #File
@@ -37,24 +38,50 @@ class Win(QMainWindow):
         helps = QAction("Помощь", self)
         helps.triggered.connect(self.buttonHelp)
         menuBar.addAction(helps)
-        #Open / Files
-        menuAction = QAction("Открыть", self)
-        menuAction.setShortcut(QKeySequence("Ctrl+O"))
-        menuAction.triggered.connect(self.oFile)
+        #Files / Open
+        openAction = QAction("Открыть", self)
+        openAction.setShortcut(QKeySequence("Ctrl+O"))
+        openAction.triggered.connect(self.oFile)
 
-        #Save / Files
-        fileAction = QAction("Сохронить", self)
-        fileAction.setShortcut(QKeySequence("Ctrl+S"))
-        fileAction.triggered.connect(self.sFile)
+        #Files / Save
+        saveAction = QAction("Сохранить", self)
+        saveAction.setShortcut(QKeySequence("Ctrl+S"))
+        saveAction.triggered.connect(self.sFile)
+
+        #Themes 
+        self.themes = QMenu("Темы", self)
+        menuBar.addMenu(self.themes)
+
+        #Themes / Dark
+        dark = QAction("Dark", self)
+        dark.triggered.connect(self.buttonDark)
+
+        #Themes / White
+        white = QAction("White", self)
+        white.triggered.connect(self.buttonWhite)
+
+        #Themes / coolDark
+        coolWhite = QAction("White+", self)
+        coolWhite.triggered.connect(self.cool_buttonWhite)
+
+        #Themes / coolWhite
+        coolDark = QAction("Dark+", self)
+        coolDark.triggered.connect(self.cool_buttonDark)
         
-        #Add Action / Files
-        
-        self.filemenu.addAction(menuAction)
-        self.filemenu.addAction(fileAction)
+        #Files / file Action
+        self.filemenu.addAction(openAction)
+        self.filemenu.addAction(saveAction)
+
+        #Themes / theme Action
+        self.themes.addAction(dark)
+        self.themes.addAction(white)
+        self.themes.addAction(coolDark)
+        self.themes.addAction(coolWhite)
+
 
     def oFile(self):
         file_path, _ =  QFileDialog.getOpenFileName(
-            self, "Открыть файл", "", "Text Files (*.txt *.md *.ini *.json *.log *.csv *.xml *.yaml *.xml);;All Files (*)"
+            self, "Открыть файл", "", "Text Files (*.txt *.md *.ini *.json *.log *.csv *.yaml *.xml);;All Files (*)"
 
             )
         try:
@@ -82,8 +109,22 @@ class Win(QMainWindow):
                 print("pass file save")
 
         except Exception as critical_errror:
-            QMessageBox.critical(self, "Файл не сохронён. Ошибка:", critical_errror)
+            QMessageBox.critical(self, "Файл не сохранён. Ошибка:", critical_errror)
            
 
     def buttonHelp(self):
         webbrowser.open("https://github.com/B1n9uM/PythonApplication1")
+
+
+    #Themes def _theme_ 
+    def buttonWhite(self):
+        self.setStyleSheet(themeWhite())
+
+    def buttonDark(self):
+        self.setStyleSheet(themeDark())
+
+    def cool_buttonWhite(self):
+        self.setStyleSheet(beautifulStyle_White())
+
+    def cool_buttonDark(self):
+        self.setStyleSheet(beautifilStyle_Dark())
