@@ -1,6 +1,5 @@
 
 def themeWhite():
-    """Простая белая тема: только цвета фона и текста."""
     return """
     QMainWindow { background: #ffffff; }
     QMenuBar    { background: #ffffff; color: #000000; }
@@ -11,7 +10,6 @@ def themeWhite():
 
 
 def themeDark():
-    """Простая тёмная тема: цвета фона и текста + видимый hover у кнопок и меню."""
     return """
     QMainWindow { background: #202020; }
     QMenuBar    { background: #303030; color: #eeeeee; }
@@ -31,7 +29,6 @@ def themeDark():
 
 
 def beautifulStyle_White():
-    """Красивая светлая тема: мягкие серые тона, без резких акцентов."""
     return """
     QMainWindow {
         background: #f4f5f7;
@@ -158,7 +155,6 @@ def beautifulStyle_White():
 
 
 def beautifilStyle_Dark():
-    """Красивая тёмная тема: угольный фон, приглушённый сине-серый акцент."""
     return """
     QMainWindow {
         background: #232529;
@@ -279,6 +275,6 @@ def beautifilStyle_Dark():
 
     QStatusBar {
         background: #2c2f34;
-        color: #9aa0a8;
+        color: #9aa0a8; 
     }
     """
