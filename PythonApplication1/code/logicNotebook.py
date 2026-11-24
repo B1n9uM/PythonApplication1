@@ -21,14 +21,14 @@ class Win(QMainWindow):
         #Settings notepad 
         self.setCentralWidget(self.input)
         
-        #Settings menubar
+
 
         # self.switch_window = {f"list{i}" : None  for i in range(7)}
-        self.createM()
+        self.createMenu()
 
-        self.setStyleSheet(themeWhite())
+        self.setStyleSheet(themeWhite()) #Style
 
-    def createM(self):
+    def createMenu(self):
         #File
         menuBar = self.menuBar()
         self.filemenu = QMenu("Файл", self)
@@ -78,7 +78,7 @@ class Win(QMainWindow):
         self.themes.addAction(coolDark)
         self.themes.addAction(coolWhite)
 
-
+    #Open file
     def oFile(self):
         file_path, _ =  QFileDialog.getOpenFileName(
             self, "Открыть файл", "", "Text Files (*.txt *.md *.ini *.json *.log *.csv *.yaml *.xml);;All Files (*)"
@@ -87,11 +87,14 @@ class Win(QMainWindow):
         try:
             with open(file_path, "r", encoding= "utf-8") as file:
                  self.text = file.read()
+
                  self.input.setText(self.text)
+                 #We take the main variable
                  self.path = file_path
         except:
             pass        
 
+    #Save file
     def sFile(self):
 
         if not self.path:
@@ -111,7 +114,7 @@ class Win(QMainWindow):
         except Exception as critical_errror:
             QMessageBox.critical(self, "Файл не сохранён. Ошибка:", critical_errror)
            
-
+    #def button help 
     def buttonHelp(self):
         webbrowser.open("https://github.com/B1n9uM/PythonApplication1")
 
