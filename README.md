@@ -15,23 +15,20 @@
 ## Структура проекта
 
 ```text
-PythonApplication1/                 # корень репозитория
-├─ README.md                        # этот файл
-├─ PythonApplication1.slnx
-└─ PythonApplication1/              # проект Visual Studio
-   ├─ PythonApplication1.pyproj     # StartupFile: code\app.py
-   ├─ code/
-   │  ├─ app.py                     # точка входа: QApplication + Win
-   │  ├─ logicNotebook.py           # окно, меню, открытие и сохранение файлов
-   │  └─ graph.py                   # темы оформления (QSS)
-   └─ env2/                         # виртуальное окружение, Python 3.14.3
+PythonApplication1/
+├─ PythonApplication1.pyproj      # проект Visual Studio, StartupFile: code\app.py
+├─ code/
+│  ├─ app.py                      # точка входа: QApplication + Win
+│  ├─ logicNotebook.py            # окно, меню, открытие и сохранение файлов
+│  └─ graph.py                    # темы оформления (QSS)
+└─ env2/                          # виртуальное окружение, Python 3.14.3
 ```
 
 ## Запуск
 
 ### Из Visual Studio
 
-Открой `PythonApplication1.slnx` и нажми **F5**. Используется интерпретатор `env2`.
+Открой `PythonApplication1.pyproj` и нажми **F5**. Используется интерпретатор `env2`.
 
 ### Из терминала
 
@@ -44,7 +41,7 @@ cd C:\Users\B1n9uM\source\repos\PythonApplication1\PythonApplication1
 
 ## Темы оформления
 
-В `PythonApplication1/code/graph.py` определены четыре функции:
+В `code/graph.py` определены четыре функции:
 
 | Функция | Описание |
 |---|---|
@@ -53,8 +50,8 @@ cd C:\Users\B1n9uM\source\repos\PythonApplication1\PythonApplication1
 | `beautifulStyle_White()` | красивая светлая тема |
 | `beautifilStyle_Dark()` | красивая тёмная тема |
 
-Чтобы включить другую тему, в `PythonApplication1/logicNotebook.py` найди блок с комментарием
-`БЛОК ИЗ graph.py` и замени вызов:
+Чтобы включить другую тему, в `logicNotebook.py` найди блок с комментарием
+`БЛОК ИЗ graph.py` и замените вызов:
 
 ```python
 self.setStyleSheet(themeWhite())
@@ -63,11 +60,6 @@ self.setStyleSheet(themeWhite())
 на любую функцию из таблицы выше. После изменения стиля перезапусти приложение —
 импорт модуля кэшируется.
 
-## Что дальше
-
-- переключатель темы прямо в меню;
-- панель инструментов с иконками;
-- сохранение в HTML и подсветка синтаксиса.
 
 ## Ссылки
 
