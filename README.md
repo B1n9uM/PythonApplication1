@@ -51,7 +51,7 @@ cd C:\Users\B1n9uM\source\repos\PythonApplication1\PythonApplication1
 | `beautifilStyle_Dark()` | красивая тёмная тема |
 
 Чтобы включить другую тему, в `logicNotebook.py` найди блок с комментарием
-`БЛОК ИЗ graph.py` и замени вызов:
+`БЛОК ИЗ graph.py` и замените вызов:
 
 ```python
 self.setStyleSheet(themeWhite())
