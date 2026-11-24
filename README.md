@@ -66,4 +66,4 @@ self.setStyleSheet(themeWhite())
 
 ## Ссылки
 
-- Репозиторий: <https://github.com/B1n9uM/PythonApplication1>
+
